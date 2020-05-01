@@ -31,7 +31,7 @@ namespace Tennis
                 return $"{scoreLookup[_player1Points]}-{scoreLookup[_player2Points]}";
             }
 
-            return "love-all";
+            return "love-love";
         }
 
         public void ScorePoint(int playerNumber)

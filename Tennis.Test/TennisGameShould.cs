@@ -23,7 +23,7 @@ namespace Tennis.Test
         {
             var score = _tennisGame.GetScore();
 
-            Assert.That(score, Is.EqualTo("love-all"));
+            Assert.That(score, Is.EqualTo("love-love"));
         }
 
         [Test]
