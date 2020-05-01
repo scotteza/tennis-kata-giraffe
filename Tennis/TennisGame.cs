@@ -7,6 +7,12 @@ namespace Tennis
         private int _player1Points;
         private int _player2Points;
 
+        public TennisGame()
+        {
+            _player1Points = 0;
+            _player2Points = 0;
+        }
+
         public string GetScore()
         {
             var scoreLookup = new Dictionary<int, string>
