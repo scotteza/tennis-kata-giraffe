@@ -78,20 +78,6 @@ namespace Tennis.Test
         }
 
         [Test]
-        public void Let_Both_Players_Score_3_Points()
-        {
-            _tennisGame.ScorePoint(1);
-            _tennisGame.ScorePoint(1);
-            _tennisGame.ScorePoint(1);
-            _tennisGame.ScorePoint(2);
-            _tennisGame.ScorePoint(2);
-            _tennisGame.ScorePoint(2);
-            var score = _tennisGame.GetScore();
-
-            Assert.That(score, Is.EqualTo("forty-forty"));
-        }
-
-        [Test]
         public void Let_Player_1_Win_With_Forty_And_A_Winning_Ball()
         {
             _tennisGame.ScorePoint(1);
@@ -113,6 +99,21 @@ namespace Tennis.Test
             var score = _tennisGame.GetScore();
 
             Assert.That(score, Is.EqualTo("player 2 wins"));
+        }
+
+        [Test]
+        public void Detect_A_Deuce()
+        {
+            _tennisGame.ScorePoint(1);
+            _tennisGame.ScorePoint(2);
+            _tennisGame.ScorePoint(1);
+            _tennisGame.ScorePoint(2);
+            _tennisGame.ScorePoint(1);
+            _tennisGame.ScorePoint(2);
+
+            var score = _tennisGame.GetScore();
+
+            Assert.That(score, Is.EqualTo("deuce"));
         }
     }
 }
