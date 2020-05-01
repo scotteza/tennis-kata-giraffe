@@ -24,9 +24,7 @@ namespace Tennis
                 return "thirty-love";
             }
 
-            Dictionary<int, string> scoreLookup = new Dictionary<int, string>();
-            scoreLookup.Add(0, "love");
-            scoreLookup.Add(3, "forty");
+            var scoreLookup = new Dictionary<int, string> {{0, "love"}, {3, "forty"}};
 
             if (_player1Points == 3)
             {
