@@ -102,5 +102,17 @@ namespace Tennis.Test
 
             Assert.That(score, Is.EqualTo("player 1 wins"));
         }
+
+        [Test]
+        public void Let_Player_2_Win_With_Forty_And_A_Winning_Ball()
+        {
+            _tennisGame.ScorePoint(2);
+            _tennisGame.ScorePoint(2);
+            _tennisGame.ScorePoint(2);
+            _tennisGame.ScorePoint(2);
+            var score = _tennisGame.GetScore();
+
+            Assert.That(score, Is.EqualTo("player 2 wins"));
+        }
     }
 }

@@ -29,6 +29,11 @@ namespace Tennis
                 return "player 1 wins";
             }
 
+            if (_player2Points >= 4 && _player2Points - _player1Points >= 2)
+            {
+                return "player 2 wins";
+            }
+
             return $"{_scoreLookup[_player1Points]}-{_scoreLookup[_player2Points]}";
         }
 
