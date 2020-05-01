@@ -64,5 +64,31 @@ namespace Tennis.Test
 
             Assert.That(score, Is.EqualTo("fifteen-fifteen"));
         }
+
+        [Test]
+        public void Let_Both_Players_Score_2_Points()
+        {
+            _tennisGame.ScorePoint(1);
+            _tennisGame.ScorePoint(1);
+            _tennisGame.ScorePoint(2);
+            _tennisGame.ScorePoint(2);
+            var score = _tennisGame.GetScore();
+
+            Assert.That(score, Is.EqualTo("thirty-thirty"));
+        }
+
+        [Test]
+        public void Let_Both_Players_Score_3_Points()
+        {
+            _tennisGame.ScorePoint(1);
+            _tennisGame.ScorePoint(1);
+            _tennisGame.ScorePoint(1);
+            _tennisGame.ScorePoint(2);
+            _tennisGame.ScorePoint(2);
+            _tennisGame.ScorePoint(2);
+            var score = _tennisGame.GetScore();
+
+            Assert.That(score, Is.EqualTo("forty-forty"));
+        }
     }
 }
