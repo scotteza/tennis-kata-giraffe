@@ -14,14 +14,10 @@ namespace Tennis
                 return "fifteen-fifteen";
             }
 
-            if (_player1Points == 1)
-            {
-                return "fifteen-love";
-            }
-
             var scoreLookup = new Dictionary<int, string>
             {
                 { 0, "love" },
+                { 1, "fifteen" },
                 { 2, "thirty" },
                 { 3, "forty" }
             };
