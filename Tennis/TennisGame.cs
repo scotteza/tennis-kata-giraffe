@@ -24,6 +24,11 @@ namespace Tennis
 
         public string GetScore()
         {
+            if (_player1Points >= 4 && _player1Points - _player2Points >= 2)
+            {
+                return "player 1 wins";
+            }
+
             return $"{_scoreLookup[_player1Points]}-{_scoreLookup[_player2Points]}";
         }
 
