@@ -61,14 +61,12 @@ namespace Tennis
                 return "advantage player 2";
             }
 
-            if (_player1Points >= _minimumPointsForWinEligibility
-            && GetPointsDifference(_player1Points, _player2Points) >= _pointsDifferenceRequiredForWin)
+            if (PlayerWinsByPointsDifference(_player1Points, _player2Points))
             {
                 return "player 1 wins";
             }
 
-            if (_player2Points >= _minimumPointsForWinEligibility
-                && GetPointsDifference(_player2Points, _player1Points) >= _pointsDifferenceRequiredForWin)
+            if (PlayerWinsByPointsDifference(_player2Points, _player1Points))
             {
                 return "player 2 wins";
             }
@@ -86,6 +84,12 @@ namespace Tennis
             return playerAPoints >= _deucePoints
                    && playerBPoints >= _deucePoints
                    && GetPointsDifference(playerAPoints, playerBPoints) == 1;
+        }
+
+        private bool PlayerWinsByPointsDifference(int playerAPoints, int playerBPoints)
+        {
+            return playerAPoints >= _minimumPointsForWinEligibility
+                   && GetPointsDifference(playerAPoints, playerBPoints) >= _pointsDifferenceRequiredForWin;
         }
 
         private int GetPointsDifference(int playerAPoints, int playerBPoints)
