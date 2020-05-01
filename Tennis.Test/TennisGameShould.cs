@@ -44,7 +44,6 @@ namespace Tennis.Test
 
             Assert.That(score, Is.EqualTo("thirty-love"));
         }
-
         [Test]
         public void Let_Player_1_Score_3_Points()
         {

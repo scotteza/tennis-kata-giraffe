@@ -29,7 +29,7 @@ namespace Tennis
 
             if (_player1Points == 3)
             {
-                return "forty-love";
+                return $"{scoreLookup[_player1Points]}-love";
             }
 
             return "love-all";
