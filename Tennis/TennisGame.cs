@@ -6,24 +6,25 @@ namespace Tennis
     {
         private int _player1Points;
         private int _player2Points;
+        private readonly Dictionary<int, string> _scoreLookup;
 
         public TennisGame()
         {
             _player1Points = 0;
             _player2Points = 0;
-        }
 
-        public string GetScore()
-        {
-            var scoreLookup = new Dictionary<int, string>
+            _scoreLookup = new Dictionary<int, string>
             {
                 { 0, "love" },
                 { 1, "fifteen" },
                 { 2, "thirty" },
                 { 3, "forty" }
             };
+        }
 
-            return $"{scoreLookup[_player1Points]}-{scoreLookup[_player2Points]}";
+        public string GetScore()
+        {
+            return $"{_scoreLookup[_player1Points]}-{_scoreLookup[_player2Points]}";
         }
 
         public void ScorePoint(int playerNumber)
