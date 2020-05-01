@@ -9,11 +9,6 @@ namespace Tennis
 
         public string GetScore()
         {
-            if (_player1Points == 1 && _player2Points == 1)
-            {
-                return "fifteen-fifteen";
-            }
-
             var scoreLookup = new Dictionary<int, string>
             {
                 { 0, "love" },
