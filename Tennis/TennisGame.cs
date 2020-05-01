@@ -24,14 +24,9 @@ namespace Tennis
                 return "thirty-love";
             }
 
-            var scoreLookup = new Dictionary<int, string> {{0, "love"}, {3, "forty"}};
+            var scoreLookup = new Dictionary<int, string> { { 0, "love" }, { 3, "forty" } };
 
-            if (_player1Points == 3)
-            {
-                return $"{scoreLookup[_player1Points]}-{scoreLookup[_player2Points]}";
-            }
-
-            return "love-love";
+            return $"{scoreLookup[_player1Points]}-{scoreLookup[_player2Points]}";
         }
 
         public void ScorePoint(int playerNumber)
