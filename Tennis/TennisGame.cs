@@ -25,11 +25,12 @@ namespace Tennis
             }
 
             Dictionary<int, string> scoreLookup = new Dictionary<int, string>();
+            scoreLookup.Add(0, "love");
             scoreLookup.Add(3, "forty");
 
             if (_player1Points == 3)
             {
-                return $"{scoreLookup[_player1Points]}-love";
+                return $"{scoreLookup[_player1Points]}-{scoreLookup[_player2Points]}";
             }
 
             return "love-all";
