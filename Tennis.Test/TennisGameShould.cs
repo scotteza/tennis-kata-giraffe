@@ -147,5 +147,39 @@ namespace Tennis.Test
 
             Assert.That(score, Is.EqualTo("advantage player 2"));
         }
+
+        [Test]
+        public void Let_Player_1_Win_After_Advantage()
+        {
+            _tennisGame.ScorePoint(1);
+            _tennisGame.ScorePoint(2);
+            _tennisGame.ScorePoint(1);
+            _tennisGame.ScorePoint(2);
+            _tennisGame.ScorePoint(1);
+            _tennisGame.ScorePoint(2);
+            _tennisGame.ScorePoint(1);
+            _tennisGame.ScorePoint(1);
+
+            var score = _tennisGame.GetScore();
+
+            Assert.That(score, Is.EqualTo("player 1 wins"));
+        }
+
+        [Test]
+        public void Let_Player_2_Win_After_Advantage()
+        {
+            _tennisGame.ScorePoint(1);
+            _tennisGame.ScorePoint(2);
+            _tennisGame.ScorePoint(1);
+            _tennisGame.ScorePoint(2);
+            _tennisGame.ScorePoint(1);
+            _tennisGame.ScorePoint(2);
+            _tennisGame.ScorePoint(2);
+            _tennisGame.ScorePoint(2);
+
+            var score = _tennisGame.GetScore();
+
+            Assert.That(score, Is.EqualTo("player 2 wins"));
+        }
     }
 }
