@@ -19,14 +19,10 @@ namespace Tennis
                 return "fifteen-love";
             }
 
-            if (_player1Points == 2)
-            {
-                return "thirty-love";
-            }
-
             var scoreLookup = new Dictionary<int, string>
             {
                 { 0, "love" },
+                { 2, "thirty" },
                 { 3, "forty" }
             };
 
