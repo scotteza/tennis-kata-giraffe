@@ -6,12 +6,21 @@ namespace Tennis
     {
         private int _player1Points;
         private int _player2Points;
+
+        private readonly int _minimumPointsForWinEligibility;
+        private readonly int _pointsDifferenceRequiredForWin;
+        private readonly int _deucePoints;
+
         private readonly Dictionary<int, string> _scoreLookup;
 
         public TennisGame()
         {
             _player1Points = 0;
             _player2Points = 0;
+
+            _minimumPointsForWinEligibility = 4;
+            _pointsDifferenceRequiredForWin = 2;
+            _deucePoints = 3;
 
             _scoreLookup = new Dictionary<int, string>
             {
@@ -24,17 +33,20 @@ namespace Tennis
 
         public string GetScore()
         {
-            if (_player1Points == 3 && _player2Points == 3)
+            if (_player1Points == _deucePoints
+                && _player2Points == _deucePoints)
             {
                 return "deuce";
             }
 
-            if (_player1Points >= 4 && _player1Points - _player2Points >= 2)
+            if (_player1Points >= _minimumPointsForWinEligibility
+                && GetPointsDifference(_player1Points, _player2Points) >= _pointsDifferenceRequiredForWin)
             {
                 return "player 1 wins";
             }
 
-            if (_player2Points >= 4 && _player2Points - _player1Points >= 2)
+            if (_player2Points >= _minimumPointsForWinEligibility
+                && GetPointsDifference(_player2Points, _player1Points) >= _pointsDifferenceRequiredForWin)
             {
                 return "player 2 wins";
             }
@@ -53,6 +65,11 @@ namespace Tennis
             {
                 _player2Points++;
             }
+        }
+
+        private int GetPointsDifference(int playerAPoints, int playerBPoints)
+        {
+            return playerAPoints - playerBPoints;
         }
     }
 }
