@@ -76,7 +76,9 @@ namespace Tennis
 
         private bool ScoreIsDeuce()
         {
-            return _player1Points == _deucePoints && _player2Points == _deucePoints;
+            return _player1Points >= _deucePoints
+                   && _player2Points >= _deucePoints
+                && _player1Points == _player2Points;
         }
 
         private bool PlayerHasAdvantage(int playerAPoints, int playerBPoints)

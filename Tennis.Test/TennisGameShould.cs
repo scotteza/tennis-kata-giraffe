@@ -223,5 +223,26 @@ namespace Tennis.Test
 
             Assert.That(score, Is.EqualTo("player 2 wins"));
         }
+
+        [Test]
+        public void Return_To_Deuce_On_Equal_Scores_After_An_Advantage_Battle()
+        {
+            _tennisGame.ScorePoint(1);
+            _tennisGame.ScorePoint(2);
+            _tennisGame.ScorePoint(1);
+            _tennisGame.ScorePoint(2);
+            _tennisGame.ScorePoint(1);
+            _tennisGame.ScorePoint(2);
+            _tennisGame.ScorePoint(1);
+            _tennisGame.ScorePoint(2);
+            _tennisGame.ScorePoint(1);
+            _tennisGame.ScorePoint(2);
+            _tennisGame.ScorePoint(1);
+            _tennisGame.ScorePoint(2);
+
+            var score = _tennisGame.GetScore();
+
+            Assert.That(score, Is.EqualTo("deuce"));
+        }
     }
 }
