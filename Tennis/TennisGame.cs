@@ -39,8 +39,15 @@ namespace Tennis
                 return "deuce";
             }
 
+            if (_player1Points >= _deucePoints
+                && _player2Points >= _deucePoints
+                && GetPointsDifference(_player1Points, _player2Points) == 1)
+            {
+                return "advantage player 1";
+            }
+
             if (_player1Points >= _minimumPointsForWinEligibility
-                && GetPointsDifference(_player1Points, _player2Points) >= _pointsDifferenceRequiredForWin)
+            && GetPointsDifference(_player1Points, _player2Points) >= _pointsDifferenceRequiredForWin)
             {
                 return "player 1 wins";
             }

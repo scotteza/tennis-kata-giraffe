@@ -115,5 +115,21 @@ namespace Tennis.Test
 
             Assert.That(score, Is.EqualTo("deuce"));
         }
+
+        [Test]
+        public void Let_Player_1_Have_Advantage()
+        {
+            _tennisGame.ScorePoint(1);
+            _tennisGame.ScorePoint(2);
+            _tennisGame.ScorePoint(1);
+            _tennisGame.ScorePoint(2);
+            _tennisGame.ScorePoint(1);
+            _tennisGame.ScorePoint(2);
+            _tennisGame.ScorePoint(1);
+
+            var score = _tennisGame.GetScore();
+
+            Assert.That(score, Is.EqualTo("advantage player 1"));
+        }
     }
 }
