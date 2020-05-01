@@ -31,6 +31,19 @@ namespace Tennis
             };
         }
 
+        public void ScorePoint(int playerNumber)
+        {
+            if (playerNumber == 1)
+            {
+                _player1Points++;
+            }
+
+            if (playerNumber == 2)
+            {
+                _player2Points++;
+            }
+        }
+
         public string GetScore()
         {
             if (ScoreIsDeuce())
@@ -73,19 +86,6 @@ namespace Tennis
             return playerAPoints >= _deucePoints
                    && playerBPoints >= _deucePoints
                    && GetPointsDifference(playerAPoints, playerBPoints) == 1;
-        }
-
-        public void ScorePoint(int playerNumber)
-        {
-            if (playerNumber == 1)
-            {
-                _player1Points++;
-            }
-
-            if (playerNumber == 2)
-            {
-                _player2Points++;
-            }
         }
 
         private int GetPointsDifference(int playerAPoints, int playerBPoints)
