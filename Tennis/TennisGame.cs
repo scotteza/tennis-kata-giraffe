@@ -33,22 +33,17 @@ namespace Tennis
 
         public string GetScore()
         {
-            if (_player1Points == _deucePoints
-                && _player2Points == _deucePoints)
+            if (ScoreIsDeuce())
             {
                 return "deuce";
             }
 
-            if (_player1Points >= _deucePoints
-                && _player2Points >= _deucePoints
-                && GetPointsDifference(_player1Points, _player2Points) == 1)
+            if (PlayerHasAdvantage(_player1Points, _player2Points))
             {
                 return "advantage player 1";
             }
 
-            if (_player1Points >= _deucePoints
-                && _player2Points >= _deucePoints
-                && GetPointsDifference(_player2Points, _player1Points) == 1)
+            if (PlayerHasAdvantage(_player2Points, _player1Points))
             {
                 return "advantage player 2";
             }
@@ -66,6 +61,18 @@ namespace Tennis
             }
 
             return $"{_scoreLookup[_player1Points]}-{_scoreLookup[_player2Points]}";
+        }
+
+        private bool ScoreIsDeuce()
+        {
+            return _player1Points == _deucePoints && _player2Points == _deucePoints;
+        }
+
+        private bool PlayerHasAdvantage(int playerAPoints, int playerBPoints)
+        {
+            return playerAPoints >= _deucePoints
+                   && playerBPoints >= _deucePoints
+                   && GetPointsDifference(playerAPoints, playerBPoints) == 1;
         }
 
         public void ScorePoint(int playerNumber)
